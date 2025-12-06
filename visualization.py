@@ -37,10 +37,10 @@ from mlxtend.frequent_patterns import apriori, association_rules
 plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
-# 创建可视化文件文件夹
-if not os.path.exists('可视化文件'):
-    os.makedirs('可视化文件')
-    print("创建文件夹: 可视化文件")
+# 创建可视化输出文件文件夹
+if not os.path.exists('可视化输出文件'):
+    os.makedirs('可视化输出文件')
+    print("创建文件夹: 可视化输出文件")
 
 print("可视化脚本环境配置完成")
 
@@ -88,7 +88,7 @@ html_table = stats_df.style \
     .set_properties(**{'text-align': 'center'}) \
     .to_html()
 
-with open('可视化文件/表1-1_数值变量统计描述表.html', 'w', encoding='utf-8') as f:
+with open('可视化输出文件/表1-1_数值变量统计描述表.html', 'w', encoding='utf-8') as f:
     f.write(html_table)
 
 # 同时保存为图片格式
@@ -132,12 +132,12 @@ for i in range(1, len(table_data)):
 
 plt.title('表1-1 数值变量统计描述表', fontsize=14, pad=20, fontweight='bold')
 plt.tight_layout()
-plt.savefig('可视化文件/表1-1_数值变量统计描述表.png', dpi=300, bbox_inches='tight')
+plt.savefig('可视化输出文件/表1-1_数值变量统计描述表.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # 保存为CSV
-stats_df.to_csv('可视化文件/表1-1_数值变量统计描述表.csv', encoding='utf-8-sig')
-print("表格1保存完成: 可视化文件/表1-1_数值变量统计描述表.html/.png/.csv")
+stats_df.to_csv('可视化输出文件/表1-1_数值变量统计描述表.csv', encoding='utf-8-sig')
+print("表格1保存完成: 可视化输出文件/表1-1_数值变量统计描述表.html/.png/.csv")
 
 # =============================================================================
 # 4. 表格2: 用户特征数据示例表
@@ -184,7 +184,7 @@ html_table = sample_data.style \
     .set_properties(**{'text-align': 'center', 'font-size': '11px'}) \
     .to_html()
 
-with open('可视化文件/表1-2_用户特征数据示例表.html', 'w', encoding='utf-8') as f:
+with open('可视化输出文件/表1-2_用户特征数据示例表.html', 'w', encoding='utf-8') as f:
     f.write(html_table)
 
 # 同时保存为图片格式
@@ -233,12 +233,12 @@ for i in range(1, len(table_data)):
 
 plt.title('表1-2 用户特征数据示例表', fontsize=14, pad=20, fontweight='bold')
 plt.tight_layout()
-plt.savefig('可视化文件/表1-2_用户特征数据示例表.png', dpi=300, bbox_inches='tight')
+plt.savefig('可视化输出文件/表1-2_用户特征数据示例表.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # 保存为CSV
-sample_data.to_csv('可视化文件/表1-2_用户特征数据示例表.csv', encoding='utf-8-sig', index=False)
-print("表格2保存完成: 可视化文件/表1-2_用户特征数据示例表.html/.png/.csv")
+sample_data.to_csv('可视化输出文件/表1-2_用户特征数据示例表.csv', encoding='utf-8-sig', index=False)
+print("表格2保存完成: 可视化输出文件/表1-2_用户特征数据示例表.html/.png/.csv")
 
 # =============================================================================
 # 5. 表格3: 商品特征数据示例表
@@ -269,7 +269,7 @@ html_table = product_sample.style \
     .set_properties(**{'text-align': 'center', 'font-size': '11px'}) \
     .to_html()
 
-with open('可视化文件/表1-3_商品特征数据示例表.html', 'w', encoding='utf-8') as f:
+with open('可视化输出文件/表1-3_商品特征数据示例表.html', 'w', encoding='utf-8') as f:
     f.write(html_table)
 
 # 同时保存为图片格式
@@ -315,12 +315,12 @@ for i in range(1, len(table_data)):
 
 plt.title('表1-3 商品特征数据示例表', fontsize=14, pad=20, fontweight='bold')
 plt.tight_layout()
-plt.savefig('可视化文件/表1-3_商品特征数据示例表.png', dpi=300, bbox_inches='tight')
+plt.savefig('可视化输出文件/表1-3_商品特征数据示例表.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # 保存为CSV
-product_sample.to_csv('可视化文件/表1-3_商品特征数据示例表.csv', encoding='utf-8-sig', index=False)
-print("表格3保存完成: 可视化文件/表1-3_商品特征数据示例表.html/.png/.csv")
+product_sample.to_csv('可视化输出文件/表1-3_商品特征数据示例表.csv', encoding='utf-8-sig', index=False)
+print("表格3保存完成: 可视化输出文件/表1-3_商品特征数据示例表.html/.png/.csv")
 
 # =============================================================================
 # 6. 表格4: 前5条关联规则表
@@ -353,7 +353,7 @@ html_table = top_rules.style \
     .set_properties(**{'text-align': 'center'}) \
     .to_html()
 
-with open('可视化文件/表1-3_前5条关联规则表.html', 'w', encoding='utf-8') as f:
+with open('可视化输出文件/表1-3_前5条关联规则表.html', 'w', encoding='utf-8') as f:
     f.write(html_table)
 
 # 同时保存为图片格式
@@ -399,12 +399,12 @@ for i in range(1, len(table_data)):
 
 plt.title('表1-3 前5条关联规则表', fontsize=14, pad=20, fontweight='bold')
 plt.tight_layout()
-plt.savefig('可视化文件/表1-3_前5条关联规则表.png', dpi=300, bbox_inches='tight')
+plt.savefig('可视化输出文件/表1-3_前5条关联规则表.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # 保存为CSV
-top_rules.to_csv('可视化文件/表1-3_前5条关联规则表.csv', encoding='utf-8-sig', index=False)
-print("表格4保存完成: 可视化文件/表1-3_前5条关联规则表.html/.png/.csv")
+top_rules.to_csv('可视化输出文件/表1-3_前5条关联规则表.csv', encoding='utf-8-sig', index=False)
+print("表格4保存完成: 可视化输出文件/表1-3_前5条关联规则表.html/.png/.csv")
 
 # =============================================================================
 # 7. 图表1: 用户分群三维散点图
@@ -440,9 +440,9 @@ ax.set_ylabel('Frequency (次)')
 ax.set_zlabel('Monetary (元)')
 ax.legend()
 plt.title('图2-1 用户分群三维散点图')
-plt.savefig('可视化文件/图2-1_用户分群三维散点图.png', dpi=300, bbox_inches='tight')
+plt.savefig('可视化输出文件/图2-1_用户分群三维散点图.png', dpi=300, bbox_inches='tight')
 plt.show()
-print("图表1保存完成: 可视化文件/图2-1_用户分群三维散点图.png")
+print("图表1保存完成: 可视化输出文件/图2-1_用户分群三维散点图.png")
 
 # =============================================================================
 # 8. 表格5: 用户群体定义表
@@ -485,7 +485,7 @@ html_table = cluster_stats.style \
     .set_properties(**{'text-align': 'center'}) \
     .to_html()
 
-with open('可视化文件/表2-2_用户群体定义表.html', 'w', encoding='utf-8') as f:
+with open('可视化输出文件/表2-2_用户群体定义表.html', 'w', encoding='utf-8') as f:
     f.write(html_table)
 
 # 同时保存为图片格式
@@ -532,12 +532,12 @@ for i in range(1, len(table_data)):
 
 plt.title('表2-2 用户群体定义表', fontsize=14, pad=20, fontweight='bold')
 plt.tight_layout()
-plt.savefig('可视化文件/表2-2_用户群体定义表.png', dpi=300, bbox_inches='tight')
+plt.savefig('可视化输出文件/表2-2_用户群体定义表.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # 保存为CSV
-cluster_stats.to_csv('可视化文件/表2-2_用户群体定义表.csv', encoding='utf-8-sig', index=False)
-print("表格5保存完成: 可视化文件/表2-2_用户群体定义表.html/.png/.csv")
+cluster_stats.to_csv('可视化输出文件/表2-2_用户群体定义表.csv', encoding='utf-8-sig', index=False)
+print("表格5保存完成: 可视化输出文件/表2-2_用户群体定义表.html/.png/.csv")
 
 # =============================================================================
 # 9. 图表2: 特征重要性排名图
@@ -608,9 +608,9 @@ if hasattr(best_model, 'feature_importances_'):
                  f'{imp:.3f}', ha='center', va='bottom', fontsize=10)
 
     plt.tight_layout()
-    plt.savefig('可视化文件/图3-1_特征重要性排名图.png', dpi=300, bbox_inches='tight')
+    plt.savefig('可视化输出文件/图3-1_特征重要性排名图.png', dpi=300, bbox_inches='tight')
     plt.show()
-    print("图表2保存完成: 可视化文件/图3-1_特征重要性排名图.png")
+    print("图表2保存完成: 可视化输出文件/图3-1_特征重要性排名图.png")
 
 # =============================================================================
 # 10. 图表3: 混淆矩阵图
@@ -628,9 +628,9 @@ plt.xlabel('预测标签', fontsize=12)
 plt.ylabel('实际标签', fontsize=12)
 plt.title('图3-2 混淆矩阵图', fontsize=14, pad=20)
 plt.tight_layout()
-plt.savefig('可视化文件/图3-2_混淆矩阵图.png', dpi=300, bbox_inches='tight')
+plt.savefig('可视化输出文件/图3-2_混淆矩阵图.png', dpi=300, bbox_inches='tight')
 plt.show()
-print("图表3保存完成: 可视化文件/图3-2_混淆矩阵图.png")
+print("图表3保存完成: 可视化输出文件/图3-2_混淆矩阵图.png")
 
 # =============================================================================
 # 11. 表格6: 分群营销策略表
@@ -702,7 +702,7 @@ html_table = strategy_df.style \
 ]) \
     .to_html()
 
-with open('可视化文件/表5-1_分群营销策略表.html', 'w', encoding='utf-8') as f:
+with open('可视化输出文件/表5-1_分群营销策略表.html', 'w', encoding='utf-8') as f:
     f.write(html_table)
 
 # 同时保存为图片格式
@@ -760,12 +760,12 @@ for i in range(1, len(table_data)):
 
 plt.title('表5-1 分群营销策略表', fontsize=14, pad=20, fontweight='bold')
 plt.tight_layout()
-plt.savefig('可视化文件/表5-1_分群营销策略表.png', dpi=300, bbox_inches='tight')
+plt.savefig('可视化输出文件/表5-1_分群营销策略表.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # 保存为CSV
-strategy_df.to_csv('可视化文件/表5-1_分群营销策略表.csv', encoding='utf-8-sig', index=False)
-print("表格6保存完成: 可视化文件/表5-1_分群营销策略表.html/.png/.csv")
+strategy_df.to_csv('可视化输出文件/表5-1_分群营销策略表.csv', encoding='utf-8-sig', index=False)
+print("表格6保存完成: 可视化输出文件/表5-1_分群营销策略表.html/.png/.csv")
 
 # =============================================================================
 # 12. 输出总结
@@ -773,7 +773,7 @@ print("表格6保存完成: 可视化文件/表5-1_分群营销策略表.html/.p
 print("\n" + "=" * 60)
 print("所有图表和表格生成完成!")
 print("=" * 60)
-print("\n生成的文件列表 (保存在'可视化文件'文件夹中):")
+print("\n生成的文件列表 (保存在'可视化输出文件'文件夹中):")
 print("表格文件 (HTML/PNG/CSV格式):")
 print("1. 表1-1_数值变量统计描述表")
 print("2. 表1-2_用户特征数据示例表")
@@ -785,4 +785,4 @@ print("\n图表文件 (PNG格式):")
 print("1. 图2-1_用户分群三维散点图.png")
 print("2. 图3-1_特征重要性排名图.png")
 print("3. 图3-2_混淆矩阵图.png")
-print(f"\n总计生成 9 个文件 (6个表格 + 3个图表) 到 '可视化文件' 文件夹!")
+print(f"\n总计生成 9 个文件 (6个表格 + 3个图表) 到 '可视化输出文件' 文件夹!")
