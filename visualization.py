@@ -74,7 +74,79 @@ else:
 # =============================================================================
 # 3. 表格1: 用户特征数据示例表
 # =============================================================================
+<<<<<<< HEAD
 print("开始生成用户特征数据示例表（表1-1）...")
+=======
+print("开始生成数值变量统计描述表...")
+
+stats_df = df_clean[['Quantity', 'UnitPrice', 'TotalAmount']].describe()
+
+# 保存为HTML格式表格（保持原样式）
+html_table = stats_df.style \
+    .set_caption('表1-1 数值变量统计描述表') \
+    .format({'count': '{:,.0f}', 'mean': '{:.2f}', 'std': '{:.2f}',
+             'min': '{:.2f}', '25%': '{:.2f}', '50%': '{:.2f}',
+             '75%': '{:.2f}', 'max': '{:.2f}'}) \
+    .background_gradient(cmap='Blues') \
+    .set_properties(**{'text-align': 'center'}) \
+    .to_html()
+
+with open('可视化输出文件/表1-1_数值变量统计描述表.html', 'w', encoding='utf-8') as f:
+    f.write(html_table)
+
+# 同时保存为图片格式
+fig, ax = plt.subplots(figsize=(10, 4))
+ax.axis('tight')
+ax.axis('off')
+
+# 创建表格
+table_data = []
+table_data.append(['统计量'] + stats_df.columns.tolist())
+for stat_name in stats_df.index:
+    row = [stat_name]
+    for col in stats_df.columns:
+        if stat_name == 'count':
+            row.append(f"{stats_df.loc[stat_name, col]:,.0f}")
+        else:
+            row.append(f"{stats_df.loc[stat_name, col]:.2f}")
+    table_data.append(row)
+
+table = ax.table(cellText=table_data,
+                 cellLoc='center',
+                 loc='center',
+                 colWidths=[0.15] + [0.28] * len(stats_df.columns))
+
+# 设置字体
+table.auto_set_font_size(False)
+table.set_fontsize(11)
+
+# 设置标题样式
+for i in range(len(table_data[0])):
+    table[(0, i)].set_facecolor('#3498DB')
+    table[(0, i)].set_text_props(weight='bold', color='white')
+
+# 设置数据行样式
+for i in range(1, len(table_data)):
+    for j in range(len(table_data[0])):
+        if i % 2 == 1:
+            table[(i, j)].set_facecolor('#EBF5FB')
+        else:
+            table[(i, j)].set_facecolor('#F8F9F9')
+
+plt.title('表1-1 数值变量统计描述表', fontsize=14, pad=20, fontweight='bold')
+plt.tight_layout()
+plt.savefig('可视化输出文件/表1-1_数值变量统计描述表.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+# 保存为CSV
+stats_df.to_csv('可视化输出文件/表1-1_数值变量统计描述表.csv', encoding='utf-8-sig')
+print("表格1保存完成: 可视化输出文件/表1-1_数值变量统计描述表.html/.png/.csv")
+
+# =============================================================================
+# 4. 表格2: 用户特征数据示例表
+# =============================================================================
+print("开始生成用户特征数据示例表...")
+>>>>>>> origin/main
 
 # 计算用户特征
 snapshot_date = df_clean['InvoiceDate'].max() + timedelta(days=1)
@@ -116,7 +188,11 @@ html_table = sample_data.style \
     .set_properties(**{'text-align': 'center', 'font-size': '11px'}) \
     .to_html()
 
+<<<<<<< HEAD
 with open('可视化输出文件/表1-1_用户特征数据示例表.html', 'w', encoding='utf-8') as f:
+=======
+with open('可视化输出文件/表1-2_用户特征数据示例表.html', 'w', encoding='utf-8') as f:
+>>>>>>> origin/main
     f.write(html_table)
 
 # 同时保存为图片格式
@@ -165,12 +241,21 @@ for i in range(1, len(table_data)):
 
 plt.title('表1-1 用户特征数据示例表', fontsize=14, pad=20, fontweight='bold')
 plt.tight_layout()
+<<<<<<< HEAD
 plt.savefig('可视化输出文件/表1-1_用户特征数据示例表.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # 保存为CSV
 sample_data.to_csv('可视化输出文件/表1-1_用户特征数据示例表.csv', encoding='utf-8-sig', index=False)
 print("表格1保存完成: 可视化输出文件/表1-1_用户特征数据示例表.html/.png/.csv")
+=======
+plt.savefig('可视化输出文件/表1-2_用户特征数据示例表.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+# 保存为CSV
+sample_data.to_csv('可视化输出文件/表1-2_用户特征数据示例表.csv', encoding='utf-8-sig', index=False)
+print("表格2保存完成: 可视化输出文件/表1-2_用户特征数据示例表.html/.png/.csv")
+>>>>>>> origin/main
 
 # =============================================================================
 # 4. 表格2: 商品特征数据示例表
@@ -201,7 +286,11 @@ html_table = product_sample.style \
     .set_properties(**{'text-align': 'center', 'font-size': '11px'}) \
     .to_html()
 
+<<<<<<< HEAD
 with open('可视化输出文件/表1-2_商品特征数据示例表.html', 'w', encoding='utf-8') as f:
+=======
+with open('可视化输出文件/表1-3_商品特征数据示例表.html', 'w', encoding='utf-8') as f:
+>>>>>>> origin/main
     f.write(html_table)
 
 # 同时保存为图片格式
@@ -247,6 +336,7 @@ for i in range(1, len(table_data)):
 
 plt.title('表1-2 商品特征数据示例表', fontsize=14, pad=20, fontweight='bold')
 plt.tight_layout()
+<<<<<<< HEAD
 plt.savefig('可视化输出文件/表1-2_商品特征数据示例表.png', dpi=300, bbox_inches='tight')
 plt.show()
 
@@ -360,6 +450,14 @@ plt.show()
 # 保存为CSV
 overview_df.to_csv('可视化输出文件/表1-3_预处理后数据集概览表.csv', encoding='utf-8-sig', index=False)
 print("表格3保存完成: 可视化输出文件/表1-3_预处理后数据集概览表.html/.png/.csv")
+=======
+plt.savefig('可视化输出文件/表1-3_商品特征数据示例表.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+# 保存为CSV
+product_sample.to_csv('可视化输出文件/表1-3_商品特征数据示例表.csv', encoding='utf-8-sig', index=False)
+print("表格3保存完成: 可视化输出文件/表1-3_商品特征数据示例表.html/.png/.csv")
+>>>>>>> origin/main
 
 # =============================================================================
 # 6. 表格4: 前5条关联规则表
@@ -392,7 +490,11 @@ html_table = top_rules.style \
     .set_properties(**{'text-align': 'center'}) \
     .to_html()
 
+<<<<<<< HEAD
 with open('可视化输出文件/表2-1_前5条关联规则表.html', 'w', encoding='utf-8') as f:
+=======
+with open('可视化输出文件/表1-3_前5条关联规则表.html', 'w', encoding='utf-8') as f:
+>>>>>>> origin/main
     f.write(html_table)
 
 # 同时保存为图片格式
@@ -438,12 +540,21 @@ for i in range(1, len(table_data)):
 
 plt.title('表2-1 前5条关联规则表', fontsize=14, pad=20, fontweight='bold')
 plt.tight_layout()
+<<<<<<< HEAD
 plt.savefig('可视化输出文件/表2-1_前5条关联规则表.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # 保存为CSV
 top_rules.to_csv('可视化输出文件/表2-1_前5条关联规则表.csv', encoding='utf-8-sig', index=False)
 print("表格4保存完成: 可视化输出文件/表2-1_前5条关联规则表.html/.png/.csv")
+=======
+plt.savefig('可视化输出文件/表1-3_前5条关联规则表.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+# 保存为CSV
+top_rules.to_csv('可视化输出文件/表1-3_前5条关联规则表.csv', encoding='utf-8-sig', index=False)
+print("表格4保存完成: 可视化输出文件/表1-3_前5条关联规则表.html/.png/.csv")
+>>>>>>> origin/main
 
 # =============================================================================
 # 7. 图表1: 用户分群三维散点图
